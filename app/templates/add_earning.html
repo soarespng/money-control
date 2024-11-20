@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Ganho</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <h1 class="text-3xl text-center mt-10">Adicionar Ganho</h1>
+    <form action="{{ url_for('app.add_earning') }}" method="POST" class="max-w-md mx-auto mt-6">
+        <div class="mb-4">
+            <label for="amount" class="block text-sm">Valor:</label>
+            <input type="number" name="amount" id="amount" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+            <label for="description" class="block text-sm">Descrição:</label>
+            <input type="text" name="description" id="description" class="w-full p-2 border rounded">
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Salvar Ganho</button>
+    </form>
+</body>
+</html>

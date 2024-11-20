@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-center">
+    <h1 class="text-4xl text-blue-600 mt-10">Dashboard Financeiro</h1>
+    <div class="mt-6">
+        <p class="text-lg">Total de Ganhos: R$ {{ earnings_total }}</p>
+        <p class="text-lg">Total de Gastos: R$ {{ expenses_total }}</p>
+        <p class="text-lg">Saldo Disponível: R$ {{ earnings_total - expenses_total }}</p>
+    </div>
+    <h2 class="text-2xl mt-10">Ganhos</h2>
+    <ul>
+        {% for earning in earnings %}
+            <li>{{ earning.date }} - R$ {{ earning.amount }} - {{ earning.category }}</li>
+        {% endfor %}
+    </ul>
+    <h2 class="text-2xl mt-10">Gastos</h2>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.date }} - R$ {{ expense.amount }} - {{ expense.category }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
